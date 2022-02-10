@@ -1,16 +1,22 @@
+import os
 import asyncio
+import logging
 from dotenv import load_dotenv
+
+logger = logging.getLogger(__name__)
 
 from pylutron_caseta.pairing import async_pair
 
 async def pair():
     load_dotenv()
+    logger.info("Starting pairing...")
     certs = await async_pair()
 
-    write_cert("caseta.crt", certs["CASETA_CERT"])
-    write_cert("caseta.key", certs["CASETA_KEY"])
-    write_cert("caseta-bridge.crt", certs["BRIDGE_CERT"])
-    print("Successfully Obtained Certificates")
+    logger.info("Pairing successful, writing certificiates...")
+    write_cert(os.getenv("CASETA_KEY", "caseta.key"), certs["PAIR_KEY"])
+    write_cert(os.getenv("CASETA_CERT", "caseta.crt"), certs["PAIR_CERT"])
+    write_cert(os.getenv("BRIDGE_CERT", "caseta-bridge.crt"), certs["PAIR_CA"])
+    logger.info("Wrote certificates, pairing complete!")
 
 def write_cert(name: str, data: str):
     file = open(name, "w")
