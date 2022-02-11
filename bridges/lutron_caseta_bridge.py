@@ -1,6 +1,5 @@
-import os
 import logging
-from bridge import Bridge
+from bridges.bridge import Bridge
 from pylutron_caseta.smartbridge import Smartbridge, LEAP_PORT
 
 class LutronCasetaBridge(Bridge):

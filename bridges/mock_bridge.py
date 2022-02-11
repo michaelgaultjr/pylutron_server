@@ -1,6 +1,5 @@
-from asyncio.log import logger
 import logging
-from bridge import Bridge
+from bridges.bridge import Bridge
 
 class MockBridge(Bridge):
 	__logger = logging.getLogger(__name__)
