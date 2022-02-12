@@ -10,7 +10,7 @@ from pylutron_caseta.pairing import async_pair
 async def pair():
     load_dotenv()
     logger.info("Starting pairing...")
-    certs = await async_pair()
+    certs = await async_pair(os.getenv("BRIDGE_HOST"))
 
     logger.info("Pairing successful, writing certificiates...")
     write_cert(os.getenv("CASETA_KEY", "caseta.key"), certs["PAIR_KEY"])
