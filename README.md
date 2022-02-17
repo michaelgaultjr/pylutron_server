@@ -64,8 +64,6 @@ By default navigating to [`http://localhost:8080`](http://localhost:8080) will p
     **Content:** `["1", "2", "3"]`
  
 
-<br>
-
 **Activate Scene**
 ----
   Activates a scene and returns scene id.
