@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+Scenes
+{% endblock %}
+
+{% block content %}
+<h1>Scenes</h1>
+<cards>
+    {% for scene in scenes %}
+    <card>
+        <header>{{ scene.name }} <p style="font-size: 1rem; margin: 0;">ID: {{ scene.scene_id }}</p></header>
+        
+        <buttons>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="scene_id" value="{{ scene.scene_id }}">
+                <button type="submit">Activate</button>
+            </form>
+        </buttons>
+    </card>
+    {% endfor %}
+</cards>
+
+{% endblock %}

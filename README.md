@@ -40,3 +40,60 @@ CASETA_CERT="caseta.crt" # Lutron Caseta Certificate File
 BRIDGE_CERT="caseta-bridge.crt" # Lutron Caseta Bridge Certificate File
 LEAP_PORT=8081 # Lutron Caseta LEAP Protocol Port
 ```
+
+# Web Interface
+By default navigating to [`http://localhost:8080`](http://localhost:8080) will provide you with a simple web interface with a list of the scenes and their ids, and an `Activate` button to activate the respetive scene.
+
+![Web Interface](/.github/images/web_interface.png)
+
+<br>
+
+# API
+
+**Get Scenes**
+----
+  Returns a json array of scene ids.
+
+* **Endpoint**
+
+  `GET /api/scenes`
+
+* **Success Response:**
+
+  * **Code:** `200` <br />
+    **Content:** `["1", "2", "3"]`
+ 
+
+---
+
+**Activate Scene**
+----
+  Activates a scene and returns scene id.
+
+* **Endpoint**
+
+  `POST /api/scenes`
+
+* **Data Params**
+
+  * `scene_id`: `string`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{scene_id}`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `Scene '{scene_id}' not found"`
+
+  OR
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `No 'scene_id' provided`
+
+  OR
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `No body`
