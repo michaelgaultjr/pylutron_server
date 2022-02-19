@@ -17,7 +17,7 @@ logger.addHandler(logging.StreamHandler())
 @routes.post("/api/scenes")
 async def activate_scene_id(request: web.Request) -> web.Response:
     if request.has_body:
-        data = await request.post()
+        data = await request.json()
         if ("scene_id" in data):
             id = data['scene_id']
             if (id in __bridge.get_scenes()):
