@@ -50,29 +50,21 @@ By default navigating to [`http://localhost:8080`](http://localhost:8080) will p
 
 # API
 
-**Get Scenes**
-----
-  Returns a json array of scene ids.
-
-* **Endpoint**
-
-  `GET /api/scenes`
+<details><summary><code>GET /api/scenes</code></summary><br/>
+Returns a json array of scene ids.
+<br/>
 
 * **Success Response:**
 
   * **Code:** `200` <br />
     **Content:** `["1", "2", "3"]`
- 
+</details>
 
-**Activate Scene**
-----
-  Activates a scene and returns scene id.
+<details><summary><code>POST /api/scenes</code></summary><br/>
+Activates a scene and returns scene id.
+<br/>
 
-* **Endpoint**
-
-  `POST /api/scenes`
-
-* **Data Params**
+* **JSON Body Properties**
 
   * `scene_id`: `string`
 
@@ -95,3 +87,12 @@ By default navigating to [`http://localhost:8080`](http://localhost:8080) will p
 
   * **Code:** 400 BAD REQUEST <br />
     **Content:** `No body`
+</details>
+
+<br>
+
+# Credits
+
+[`pylutron-caseta`](https://github.com/gurumitts/pylutron-caseta) by [@grrumitts](https://github.com/gurumitts)
+
+[`water.css`](https://github.com/kognise/water.css) by [@kognise](https://github.com/kognise)
